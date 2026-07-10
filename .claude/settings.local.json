@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(& \"C:\\\\Users\\\\pc\\\\Desktop\\\\Qodex\\\\FlowPilot\\\\.specify\\\\scripts\\\\powershell\\\\setup-plan.ps1\" -Json)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\pc\\\\Desktop\\\\Qodex\\\\FlowPilot\\\\specs\\\\001-flowpilot-landing-page\" -Recurse | Select-Object @{N='File';E={$_.FullName.Replace\\('C:\\\\Users\\\\pc\\\\Desktop\\\\Qodex\\\\FlowPilot\\\\','.'\\)}}, @{N='Size \\(KB\\)';E={[math]::Round\\($_.Length/1KB,1\\)}}, @{N='Modified';E={$_.LastWriteTime.ToString\\('HH:mm:ss'\\)}} | Format-Table -AutoSize)"
+    ]
+  }
+}

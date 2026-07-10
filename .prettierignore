@@ -1,0 +1,5 @@
+node_modules
+.next
+.specify
+specs
+coverage
