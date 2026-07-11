@@ -1,17 +1,12 @@
+import { Hero } from '@/components/sections/Hero/Hero'
+import { Trusted } from '@/components/sections/Trusted/Trusted'
+
 export default function Home() {
   return (
     <>
-      <section id="hero">
-        <div className="container mx-auto py-24">
-          <h1>Hero Section</h1>
-        </div>
-      </section>
+      <Hero />
 
-      <section id="trusted">
-        <div className="container mx-auto py-24">
-          <h2>Trusted Section</h2>
-        </div>
-      </section>
+      <Trusted />
 
       <section id="features">
         <div className="container mx-auto py-24">
