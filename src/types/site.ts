@@ -14,3 +14,8 @@ export interface NavLink {
   href: string
   isExternal?: boolean
 }
+
+export interface SocialLink {
+  label: string
+  href: string
+}

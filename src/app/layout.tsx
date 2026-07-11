@@ -11,10 +11,24 @@ const inter = Inter({
   display: 'swap',
 })
 
+import { SITE_CONFIG } from '@/lib/constants'
+import { buildJsonLd } from '@/lib/metadata'
+
 export const metadata: Metadata = {
-  title: 'FlowPilot – AI Workflow Automation',
-  description:
-    'FlowPilot helps modern teams automate workflows with AI-powered automation.',
+  metadataBase: new URL(SITE_CONFIG.url),
+  title: {
+    template: '%s | FlowPilot',
+    default: 'FlowPilot',
+  },
+  description: SITE_CONFIG.description,
+  openGraph: {
+    siteName: SITE_CONFIG.name,
+    locale: SITE_CONFIG.locale,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
 }
 
 export default function RootLayout({
@@ -29,6 +43,14 @@ export default function RootLayout({
       className={`${inter.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: buildJsonLd('WebSite') }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: buildJsonLd('Organization') }}
+        />
         <ThemeProvider>
           <Navbar />
           <main className="flex-1">{children}</main>

@@ -1,4 +1,4 @@
-import type { SiteConfig, NavLink } from '@/types/site'
+import type { SiteConfig, NavLink, SocialLink } from '@/types/site'
 
 export const SITE_CONFIG: SiteConfig = {
   name: 'FlowPilot',
@@ -18,4 +18,10 @@ export const NAV_LINKS: NavLink[] = [
   { label: 'Pricing', href: '#pricing' },
   { label: 'Testimonials', href: '#testimonials' },
   { label: 'FAQ', href: '#faq' },
+]
+
+export const SOCIAL_LINKS: SocialLink[] = [
+  { label: 'GitHub', href: 'https://github.com/flowpilot' },
+  { label: 'Twitter', href: 'https://twitter.com/flowpilot' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/company/flowpilot' },
 ]
