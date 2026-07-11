@@ -80,7 +80,7 @@ export function Testimonials() {
                   {t.initials}
                 </div>
                 <div>
-                  <p className="text-sm font-semibold">{t.name}</p>
+                  <h3 className="text-sm font-semibold">{t.name}</h3>
                   <p className="text-xs text-muted-foreground">
                     {t.title}, {t.company}
                   </p>

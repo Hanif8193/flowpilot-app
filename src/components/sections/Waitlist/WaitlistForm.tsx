@@ -19,7 +19,7 @@ export function WaitlistForm() {
         <button
           type="button"
           onClick={reset}
-          className="mt-4 text-sm text-primary underline-offset-4 hover:underline"
+          className="mt-4 rounded-lg text-sm text-primary underline-offset-4 hover:underline"
         >
           Submit another email
         </button>
@@ -36,7 +36,7 @@ export function WaitlistForm() {
         <button
           type="button"
           onClick={reset}
-          className="mt-4 text-sm text-primary underline-offset-4 hover:underline"
+          className="mt-4 rounded-lg text-sm text-primary underline-offset-4 hover:underline"
         >
           Try a different email
         </button>
@@ -53,7 +53,7 @@ export function WaitlistForm() {
         <button
           type="button"
           onClick={reset}
-          className="mt-4 text-sm text-primary underline-offset-4 hover:underline"
+          className="mt-4 rounded-lg text-sm text-primary underline-offset-4 hover:underline"
         >
           Try again
         </button>

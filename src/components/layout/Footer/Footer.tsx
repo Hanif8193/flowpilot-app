@@ -86,7 +86,7 @@ function FooterLinkGroup({
           <li key={link.href}>
             <Link
               href={link.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="rounded-lg text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
             </Link>
@@ -103,7 +103,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
           <div className="col-span-2 space-y-4">
-            <Link href="/" className="inline-flex items-center gap-2">
+            <Link href="/" className="inline-flex items-center gap-2 rounded-lg">
               <span className="text-xl font-bold tracking-tight">
                 FlowPilot
               </span>
@@ -119,7 +119,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${social.label} (opens in new tab)`}
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  className="rounded-lg text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {social.icon}
                 </a>
@@ -141,7 +141,7 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="rounded-lg text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {link.label}
               </Link>
