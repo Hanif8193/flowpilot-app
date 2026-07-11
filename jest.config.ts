@@ -12,4 +12,5 @@ const customJestConfig = {
   },
 }
 
-export default createJestConfig(customJestConfig)
+// next/jest types require all Jest config properties; cast to allow partial config
+export default createJestConfig(customJestConfig as Parameters<typeof createJestConfig>[0])
