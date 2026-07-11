@@ -1,5 +1,12 @@
 import { Hero } from '@/components/sections/Hero/Hero'
 import { Trusted } from '@/components/sections/Trusted/Trusted'
+import { Features } from '@/components/sections/Features/Features'
+import { Workflow } from '@/components/sections/Workflow/Workflow'
+import { Dashboard } from '@/components/sections/Dashboard/Dashboard'
+import { Pricing } from '@/components/sections/Pricing/Pricing'
+import { Testimonials } from '@/components/sections/Testimonials/Testimonials'
+import { FAQ } from '@/components/sections/FAQ/FAQ'
+import { Waitlist } from '@/components/sections/Waitlist/Waitlist'
 
 export default function Home() {
   return (
@@ -8,47 +15,19 @@ export default function Home() {
 
       <Trusted />
 
-      <section id="features">
-        <div className="container mx-auto py-24">
-          <h2>Features Section</h2>
-        </div>
-      </section>
+      <Features />
 
-      <section id="workflow">
-        <div className="container mx-auto py-24">
-          <h2>Workflow Section</h2>
-        </div>
-      </section>
+      <Workflow />
 
-      <section id="dashboard">
-        <div className="container mx-auto py-24">
-          <h2>Dashboard Section</h2>
-        </div>
-      </section>
+      <Dashboard />
 
-      <section id="pricing">
-        <div className="container mx-auto py-24">
-          <h2>Pricing Section</h2>
-        </div>
-      </section>
+      <Pricing />
 
-      <section id="testimonials">
-        <div className="container mx-auto py-24">
-          <h2>Testimonials Section</h2>
-        </div>
-      </section>
+      <Testimonials />
 
-      <section id="faq">
-        <div className="container mx-auto py-24">
-          <h2>FAQ Section</h2>
-        </div>
-      </section>
+      <FAQ />
 
-      <section id="waitlist">
-        <div className="container mx-auto py-24">
-          <h2>Waitlist Section</h2>
-        </div>
-      </section>
+      <Waitlist />
     </>
   )
 }
