@@ -1,5 +1,9 @@
 'use client'
 
+// useWaitlistForm — Waitlist form state management hook.
+// Flow: localStorage dedup check → POST /api/waitlist → localStorage cache.
+// Handles 201 (success), 409 (duplicate), 422 (validation), and 500 (error).
+
 import { useState, useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'

@@ -76,7 +76,9 @@ export function WaitlistForm() {
           id="waitlist-email"
           type="email"
           placeholder="Enter your email"
-          aria-describedby="email-error"
+          aria-describedby={
+            form.formState.errors.email ? 'email-error' : undefined
+          }
           aria-invalid={!!form.formState.errors.email}
           {...form.register('email')}
           className="h-11 flex-1 text-base"

@@ -1,3 +1,7 @@
+// Prisma client singleton — prevents multiple instances during Next.js dev HMR.
+// Uses @prisma/adapter-pg (PrismaPg) for PostgreSQL connection pooling.
+// The globalThis singleton is only set in non-production environments.
+
 import { PrismaClient } from '@/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 

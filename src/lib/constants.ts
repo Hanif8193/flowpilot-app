@@ -6,7 +6,7 @@ export const SITE_CONFIG: SiteConfig = {
   description:
     'FlowPilot streamlines your development workflow with AI-powered automation. Build faster, deploy smarter.',
   url: 'https://flowpilot.app',
-  ogImage: '/images/og-image.png',
+  ogImage: '/og-image.png',
   twitterHandle: '@flowpilot',
   locale: 'en_US',
   themeColor: '#6d28d9',

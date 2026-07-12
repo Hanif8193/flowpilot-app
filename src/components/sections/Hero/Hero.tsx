@@ -61,10 +61,11 @@ export function Hero() {
           {/* Right Image */}
           <div className="relative mx-auto w-full max-w-[700px]">
             <Image
-              src="https://placehold.co/700x600/png"
+              src="/Hero.png"
               alt="FlowPilot AI workflow automation dashboard showing connected tools, automated tasks, and real-time analytics"
               width={700}
               height={600}
+              sizes="(max-width: 768px) 100vw, 700px"
               priority
               className="h-auto w-full rounded-2xl shadow-2xl"
             />

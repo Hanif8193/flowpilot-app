@@ -87,7 +87,7 @@ export function LoginForm() {
             id="login-email"
             type="email"
             placeholder="jane@company.com"
-            aria-describedby="login-email-error"
+            aria-describedby={errors.email ? 'login-email-error' : undefined}
             aria-invalid={!!errors.email}
             disabled={isSubmitting}
             autoComplete="email"
@@ -112,7 +112,9 @@ export function LoginForm() {
             id="login-password"
             type="password"
             placeholder="Enter your password"
-            aria-describedby="login-password-error"
+            aria-describedby={
+              errors.password ? 'login-password-error' : undefined
+            }
             aria-invalid={!!errors.password}
             disabled={isSubmitting}
             autoComplete="current-password"

@@ -1,42 +1,18 @@
 'use server'
 
-import { z } from 'zod'
 import bcrypt from 'bcryptjs'
 import { prisma } from '@/lib/prisma'
+import { SignupFormSchema } from '@/lib/validations'
+import type { SignupFormData } from '@/lib/validations'
 
-const SignupSchema = z
-  .object({
-    name: z
-      .string()
-      .min(1, 'Full name is required.')
-      .min(2, 'Name must be at least 2 characters.')
-      .max(100, 'Name is too long.'),
-    email: z
-      .string()
-      .min(1, 'Email address is required.')
-      .email('Please enter a valid email address.')
-      .max(254, 'Email address is too long.'),
-    password: z
-      .string()
-      .min(1, 'Password is required.')
-      .min(8, 'Password must be at least 8 characters.'),
-    confirmPassword: z.string().min(1, 'Please confirm your password.'),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: 'Passwords do not match.',
-    path: ['confirmPassword'],
-  })
-
-export type SignupInput = z.infer<typeof SignupSchema>
-
-export interface SignupResult {
+interface SignupResult {
   success: boolean
   error?: string
   fieldErrors?: Record<string, string>
 }
 
-export async function signup(data: SignupInput): Promise<SignupResult> {
-  const parsed = SignupSchema.safeParse(data)
+export async function signup(data: SignupFormData): Promise<SignupResult> {
+  const parsed = SignupFormSchema.safeParse(data)
 
   if (!parsed.success) {
     const fieldErrors: Record<string, string> = {}

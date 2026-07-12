@@ -1,3 +1,8 @@
+// FlowPilot v1.0.0 — Jest config.
+// Uses next/jest for Next.js integration with jsdom environment.
+// Requires --forceExit if @base-ui/react causes open handle warnings.
+// Do NOT modify without running: npm test
+
 import nextJest from 'next/jest.js'
 
 const createJestConfig = nextJest({

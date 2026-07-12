@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 import Link from 'next/link'
 
-import { AnimatePresence, motion } from 'framer-motion'
 import { LogOut, Menu, X } from 'lucide-react'
 import { useSession, signOut } from 'next-auth/react'
 
@@ -19,6 +18,13 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const drawerRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
+  const [MobileMenu, setMobileMenu] = useState<React.ComponentType<{
+    isOpen: boolean
+    onClose: () => void
+    isAuthenticated: boolean
+    userName: string | undefined
+    ref?: React.Ref<HTMLDivElement>
+  }> | null>(null)
 
   const close = useCallback(() => {
     setIsOpen(false)
@@ -48,6 +54,15 @@ export function Navbar() {
   useEffect(() => {
     if (!isOpen) return
 
+    if (drawerRef.current) {
+      const focusable = drawerRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      )
+      if (focusable.length > 0) {
+        focusable[0].focus()
+      }
+    }
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         close()
@@ -74,6 +89,12 @@ export function Navbar() {
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [isOpen, close])
+
+  useEffect(() => {
+    if (isOpen && !MobileMenu) {
+      import('./MobileMenu').then((mod) => setMobileMenu(() => mod.MobileMenu))
+    }
+  }, [isOpen, MobileMenu])
 
   const isAuthenticated = !!session?.user
   const userName = session?.user?.name || session?.user?.email
@@ -151,104 +172,15 @@ export function Navbar() {
         </Button>
       </nav>
 
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-[210] bg-black/50 lg:hidden"
-              onClick={close}
-              aria-hidden="true"
-            />
-
-            <motion.div
-              ref={drawerRef}
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 250 }}
-              className="border-border bg-background fixed inset-y-0 right-0 z-[220] flex w-[min(85vw,360px)] flex-col border-l p-6 lg:hidden"
-            >
-              <div className="mb-8 flex items-center justify-between">
-                <Link
-                  href="/"
-                  className="rounded-lg text-xl font-bold tracking-tight"
-                  onClick={close}
-                >
-                  FlowPilot
-                </Link>
-                <Button
-                  type="button"
-                  variant="ghost"
-                  size="icon"
-                  aria-label="Close navigation menu"
-                  onClick={close}
-                >
-                  <X className="size-5" />
-                </Button>
-              </div>
-
-              <nav
-                aria-label="Mobile navigation"
-                className="flex flex-1 flex-col gap-1"
-              >
-                {NAV_LINKS.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-muted-foreground hover:bg-muted hover:text-foreground rounded-lg px-3 py-2 text-sm font-medium transition-colors"
-                    onClick={close}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-
-              <div className="mt-auto flex flex-col gap-3 pt-6">
-                <ThemeToggle />
-                {isAuthenticated ? (
-                  <>
-                    <p className="text-muted-foreground text-sm">
-                      Signed in as {userName}
-                    </p>
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={() => {
-                        close()
-                        signOut({ callbackUrl: '/' })
-                      }}
-                    >
-                      <LogOut className="mr-1.5 size-3.5" />
-                      Sign Out
-                    </Button>
-                  </>
-                ) : (
-                  <>
-                    <Link
-                      href="/login"
-                      className={buttonVariants({ variant: 'outline' })}
-                      onClick={close}
-                    >
-                      Sign In
-                    </Link>
-                    <Link
-                      href="/signup"
-                      className={buttonVariants()}
-                      onClick={close}
-                    >
-                      Get Started
-                    </Link>
-                  </>
-                )}
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      {MobileMenu && (
+        <MobileMenu
+          ref={drawerRef}
+          isOpen={isOpen}
+          onClose={close}
+          isAuthenticated={isAuthenticated}
+          userName={userName ?? undefined}
+        />
+      )}
     </header>
   )
 }

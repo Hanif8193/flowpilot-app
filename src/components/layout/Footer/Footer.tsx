@@ -7,18 +7,12 @@ const footerLinks = {
     { label: 'Waitlist', href: '#waitlist' },
   ],
   Resources: [
-    { label: 'Documentation', href: '/docs' },
     { label: 'FAQ', href: '#faq' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Workflow', href: '#workflow' },
   ],
   Legal: [
     { label: 'Privacy Policy', href: '/privacy-policy' },
     { label: 'Terms of Service', href: '/terms' },
-  ],
-  Company: [
-    { label: 'About', href: '/about' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Careers', href: '/careers' },
   ],
 }
 
@@ -101,7 +95,7 @@ export function Footer() {
   return (
     <footer className="border-border bg-background border-t">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           <div className="col-span-2 space-y-4">
             <Link
               href="/"

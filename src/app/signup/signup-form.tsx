@@ -109,7 +109,7 @@ export function SignupForm() {
             id="signup-name"
             type="text"
             placeholder="Jane Doe"
-            aria-describedby="name-error"
+            aria-describedby={errors.name ? 'name-error' : undefined}
             aria-invalid={!!errors.name}
             disabled={isSubmitting}
             {...register('name')}
@@ -133,7 +133,7 @@ export function SignupForm() {
             id="signup-email"
             type="email"
             placeholder="jane@company.com"
-            aria-describedby="email-error"
+            aria-describedby={errors.email ? 'email-error' : undefined}
             aria-invalid={!!errors.email}
             disabled={isSubmitting}
             {...register('email')}
@@ -157,7 +157,7 @@ export function SignupForm() {
             id="signup-password"
             type="password"
             placeholder="Minimum 8 characters"
-            aria-describedby="password-error"
+            aria-describedby={errors.password ? 'password-error' : undefined}
             aria-invalid={!!errors.password}
             disabled={isSubmitting}
             {...register('password')}
@@ -181,7 +181,9 @@ export function SignupForm() {
             id="signup-confirm-password"
             type="password"
             placeholder="Re-enter your password"
-            aria-describedby="confirm-password-error"
+            aria-describedby={
+              errors.confirmPassword ? 'confirm-password-error' : undefined
+            }
             aria-invalid={!!errors.confirmPassword}
             disabled={isSubmitting}
             {...register('confirmPassword')}

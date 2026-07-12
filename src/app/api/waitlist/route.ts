@@ -1,3 +1,8 @@
+// Waitlist POST endpoint — FlowPilot v1.0.0.
+// Validates email with Zod, checks for duplicates in PostgreSQL,
+// returns structured JSON with success/code/message fields.
+// Tests: src/app/api/waitlist/route.test.ts (4 tests covering 201/409/422/500).
+
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { WaitlistFormSchema } from '@/lib/validations'

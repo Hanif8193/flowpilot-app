@@ -1,3 +1,7 @@
+// NextAuth v5 configuration — FlowPilot v1.0.0.
+// Uses PrismaAdapter for database sessions, Credentials provider for email/password,
+// JWT strategy for stateless sessions, and custom signIn page at /login.
+
 import NextAuth from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
 import { PrismaAdapter } from '@auth/prisma-adapter'

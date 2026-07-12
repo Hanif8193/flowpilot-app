@@ -125,6 +125,7 @@ export function Pricing() {
                 variant={plan.featured ? 'default' : 'outline'}
                 className="w-full"
                 size="lg"
+                aria-label={`${plan.cta} — ${plan.name} plan`}
               >
                 {plan.cta}
               </Button>

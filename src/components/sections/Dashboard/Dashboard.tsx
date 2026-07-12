@@ -46,7 +46,10 @@ export function Dashboard() {
           </div>
 
           {/* Dashboard Preview */}
-          <div className="border-border bg-card w-full overflow-hidden rounded-xl border shadow-xl">
+          <div
+            aria-hidden="true"
+            className="border-border bg-card w-full overflow-hidden rounded-xl border shadow-xl"
+          >
             {/* Top Navigation */}
             <div className="border-border flex items-center gap-3 border-b px-4 py-3">
               <div className="flex gap-1.5">
@@ -71,7 +74,7 @@ export function Dashboard() {
                     FlowPilot
                   </span>
                 </div>
-                <nav className="space-y-1" aria-label="Dashboard navigation">
+                <nav className="space-y-1">
                   {[
                     { label: 'Overview', active: true },
                     { label: 'Workflows', active: false },

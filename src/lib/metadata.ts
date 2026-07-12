@@ -28,13 +28,16 @@ export function generatePageMetadata({
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: SITE_CONFIG.name,
+          alt: `${SITE_CONFIG.name} - ${SITE_CONFIG.tagline}`,
         },
       ],
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
     },
     alternates: {
       canonical: url,
@@ -48,6 +51,11 @@ interface WebSiteSchema {
   name: string
   url: string
   description: string
+  potentialAction?: {
+    '@type': 'SearchAction'
+    target: string
+    'query-input': string
+  }
 }
 
 interface OrganizationSchema {
@@ -57,6 +65,7 @@ interface OrganizationSchema {
   url: string
   logo: string
   sameAs: string[]
+  description?: string
 }
 
 type JsonLdSchema = WebSiteSchema | OrganizationSchema
@@ -73,6 +82,11 @@ export function buildJsonLd(type: 'WebSite' | 'Organization'): string {
       name: SITE_CONFIG.name,
       url: SITE_CONFIG.url,
       description: SITE_CONFIG.description,
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: `${SITE_CONFIG.url}/search?q={search_term_string}`,
+        'query-input': 'required name=search_term_string',
+      },
     }
   } else {
     schema = {
@@ -80,8 +94,9 @@ export function buildJsonLd(type: 'WebSite' | 'Organization'): string {
       '@type': 'Organization',
       name: SITE_CONFIG.name,
       url: SITE_CONFIG.url,
-      logo: `${SITE_CONFIG.url}/images/logo.png`,
+      logo: `${SITE_CONFIG.url}/logo.png`,
       sameAs: SOCIAL_LINKS.map((link) => link.href),
+      description: SITE_CONFIG.description,
     }
   }
 

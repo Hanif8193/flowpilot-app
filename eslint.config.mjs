@@ -1,3 +1,7 @@
+// FlowPilot v1.0.0 — ESLint flat config.
+// Requires eslint-config-next 16.2.10 and ESLint 9.x.
+// Do NOT modify without running: npx eslint .
+
 import { defineConfig, globalIgnores } from 'eslint/config'
 import nextVitals from 'eslint-config-next/core-web-vitals'
 import nextTs from 'eslint-config-next/typescript'
