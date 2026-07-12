@@ -18,7 +18,12 @@ export default function PrivacyPolicyPage() {
 
         <div className="prose prose-gray dark:prose-invert mt-8 space-y-8">
           <p className="text-muted-foreground">
-            Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            Last updated:{' '}
+            {new Date().toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
           </p>
 
           <div className="space-y-2">
@@ -36,7 +41,8 @@ export default function PrivacyPolicyPage() {
             <p className="text-muted-foreground">
               We use the information we collect to operate and improve our
               services, to communicate with you about updates and offers, and to
-              respond to your comments, questions, and customer service requests.
+              respond to your comments, questions, and customer service
+              requests.
             </p>
           </div>
 
@@ -44,8 +50,8 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-xl font-bold">Cookies</h2>
             <p className="text-muted-foreground">
               We use cookies and similar tracking technologies to track activity
-              on our service and hold certain information. Cookies are files with
-              a small amount of data which may include an anonymous unique
+              on our service and hold certain information. Cookies are files
+              with a small amount of data which may include an anonymous unique
               identifier.
             </p>
           </div>

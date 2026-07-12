@@ -49,7 +49,7 @@ export function Testimonials() {
           <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
             Loved by Teams Worldwide
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-muted-foreground text-lg">
             See why developers and companies trust FlowPilot to automate their
             workflows.
           </p>
@@ -59,29 +59,29 @@ export function Testimonials() {
           {testimonials.map((t) => (
             <article
               key={t.name}
-              className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl sm:p-8"
+              className="border-border bg-card flex flex-col rounded-2xl border p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl sm:p-8"
             >
               <Quote
-                className="mb-4 size-8 text-muted-foreground/30"
+                className="text-muted-foreground/30 mb-4 size-8"
                 aria-hidden="true"
               />
 
-              <blockquote className="mb-6 flex-1 text-sm leading-relaxed text-muted-foreground">
+              <blockquote className="text-muted-foreground mb-6 flex-1 text-sm leading-relaxed">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
 
               <StarRating />
 
-              <div className="mt-5 flex items-center gap-3 border-t border-border pt-5">
+              <div className="border-border mt-5 flex items-center gap-3 border-t pt-5">
                 <div
-                  className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary"
+                  className="bg-primary/10 text-primary flex size-10 shrink-0 items-center justify-center rounded-full text-sm font-semibold"
                   aria-hidden="true"
                 >
                   {t.initials}
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold">{t.name}</h3>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-muted-foreground text-xs">
                     {t.title}, {t.company}
                   </p>
                 </div>

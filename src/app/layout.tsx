@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '@/components/providers/ThemeProvider'
+import { Providers } from '@/components/providers/Providers'
 import { Navbar } from '@/components/layout/Navbar/Navbar'
 import { Footer } from '@/components/layout/Footer/Footer'
 
@@ -51,11 +51,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: buildJsonLd('Organization') }}
         />
-        <ThemeProvider>
+        <Providers>
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   )

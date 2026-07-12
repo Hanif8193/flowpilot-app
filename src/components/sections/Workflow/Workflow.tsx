@@ -25,8 +25,7 @@ const steps = [
     step: 4,
     icon: ChartNoAxesColumn,
     title: 'Track Results',
-    description:
-      'Monitor performance with real-time dashboards and analytics.',
+    description: 'Monitor performance with real-time dashboards and analytics.',
   },
 ]
 
@@ -38,7 +37,7 @@ export function Workflow() {
           <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
             How FlowPilot Works
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-muted-foreground text-lg">
             Four simple steps to automate your workflow with AI.
           </p>
         </div>
@@ -49,16 +48,16 @@ export function Workflow() {
             return (
               <div
                 key={step.step}
-                className="group relative rounded-xl border border-border bg-card p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                className="group border-border bg-card relative rounded-xl border p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="absolute -top-3 left-6 flex size-7 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+                <div className="bg-primary text-primary-foreground absolute -top-3 left-6 flex size-7 items-center justify-center rounded-full text-xs font-bold">
                   {step.step}
                 </div>
-                <div className="mb-4 mt-2 flex size-12 items-center justify-center rounded-lg bg-primary/10">
-                  <Icon className="size-6 text-primary" aria-hidden="true" />
+                <div className="bg-primary/10 mt-2 mb-4 flex size-12 items-center justify-center rounded-lg">
+                  <Icon className="text-primary size-6" aria-hidden="true" />
                 </div>
                 <h3 className="mb-2 text-lg font-semibold">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   {step.description}
                 </p>
               </div>

@@ -13,9 +13,9 @@ const companies = [
 
 export function Trusted() {
   return (
-    <section id="trusted" className="border-y border-border bg-muted/30">
+    <section id="trusted" className="border-border bg-muted/30 border-y">
       <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8">
-        <h2 className="mb-12 text-center text-2xl font-semibold tracking-tight text-muted-foreground sm:text-3xl">
+        <h2 className="text-muted-foreground mb-12 text-center text-2xl font-semibold tracking-tight sm:text-3xl">
           Trusted by modern teams worldwide
         </h2>
 
@@ -23,13 +23,13 @@ export function Trusted() {
           {companies.map((name) => (
             <div
               key={name}
-              className="flex flex-col items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 py-6 shadow-sm transition-all duration-200 hover:shadow-md"
+              className="border-border bg-card flex flex-col items-center justify-center gap-2 rounded-xl border px-4 py-6 shadow-sm transition-all duration-200 hover:shadow-md"
             >
               <Building2
-                className="size-6 text-muted-foreground/60"
+                className="text-muted-foreground/60 size-6"
                 aria-hidden="true"
               />
-              <span className="text-sm font-medium text-muted-foreground">
+              <span className="text-muted-foreground text-sm font-medium">
                 {name}
               </span>
             </div>

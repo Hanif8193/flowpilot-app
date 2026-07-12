@@ -1,6 +1,10 @@
+'use client'
+
+import { useState } from 'react'
 import { Check } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import { BillingToggle } from '@/components/ui/BillingToggle/BillingToggle'
 
 const plans = [
   {
@@ -18,7 +22,8 @@ const plans = [
   },
   {
     name: 'Pro',
-    price: '$29',
+    monthlyPrice: '$19',
+    annualPrice: '$15',
     period: '/month',
     description: 'For growing teams',
     features: [
@@ -49,6 +54,8 @@ const plans = [
 ]
 
 export function Pricing() {
+  const [isAnnual, setIsAnnual] = useState(false)
+
   return (
     <section id="pricing">
       <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8">
@@ -56,11 +63,14 @@ export function Pricing() {
           <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-muted-foreground text-lg">
             Choose the perfect plan for your team.
             <br />
             No hidden fees. Cancel anytime.
           </p>
+          <div className="mt-8 flex justify-center">
+            <BillingToggle isAnnual={isAnnual} onToggle={setIsAnnual} />
+          </div>
         </div>
 
         <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
@@ -74,23 +84,27 @@ export function Pricing() {
               }`}
             >
               {plan.badge && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
+                <span className="bg-primary text-primary-foreground absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-semibold">
                   {plan.badge}
                 </span>
               )}
 
               <div className="mb-6">
                 <h3 className="text-lg font-semibold">{plan.name}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">
+                <p className="text-muted-foreground mt-1 text-sm">
                   {plan.description}
                 </p>
               </div>
 
               <div className="mb-6">
                 <span className="text-4xl font-bold tracking-tight">
-                  {plan.price}
+                  {'monthlyPrice' in plan
+                    ? isAnnual
+                      ? plan.annualPrice
+                      : plan.monthlyPrice
+                    : plan.price}
                 </span>
-                {plan.period && (
+                {'period' in plan && (
                   <span className="text-muted-foreground">{plan.period}</span>
                 )}
               </div>
@@ -99,7 +113,7 @@ export function Pricing() {
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <Check
-                      className="mt-0.5 size-4 shrink-0 text-primary"
+                      className="text-primary mt-0.5 size-4 shrink-0"
                       aria-hidden="true"
                     />
                     <span className="text-sm">{feature}</span>

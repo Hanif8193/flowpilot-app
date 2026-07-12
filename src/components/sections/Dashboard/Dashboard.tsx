@@ -19,7 +19,7 @@ export function Dashboard() {
               <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
                 See FlowPilot in Action
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-muted-foreground text-lg">
                 Monitor workflows, automate repetitive tasks, and gain insights
                 from one beautiful dashboard.
               </p>
@@ -28,8 +28,8 @@ export function Dashboard() {
             <ul className="space-y-3">
               {featureList.map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                    <Check className="size-3 text-primary" aria-hidden="true" />
+                  <div className="bg-primary/10 flex size-5 shrink-0 items-center justify-center rounded-full">
+                    <Check className="text-primary size-3" aria-hidden="true" />
                   </div>
                   <span className="text-sm font-medium">{item}</span>
                 </li>
@@ -46,28 +46,28 @@ export function Dashboard() {
           </div>
 
           {/* Dashboard Preview */}
-          <div className="w-full overflow-hidden rounded-xl border border-border bg-card shadow-xl">
+          <div className="border-border bg-card w-full overflow-hidden rounded-xl border shadow-xl">
             {/* Top Navigation */}
-            <div className="flex items-center gap-3 border-b border-border px-4 py-3">
+            <div className="border-border flex items-center gap-3 border-b px-4 py-3">
               <div className="flex gap-1.5">
                 <div className="size-3 rounded-full bg-red-400" />
                 <div className="size-3 rounded-full bg-yellow-400" />
                 <div className="size-3 rounded-full bg-green-400" />
               </div>
               <div className="flex-1">
-                <div className="mx-auto flex max-w-sm items-center gap-2 rounded-md bg-muted/50 px-3 py-1.5">
-                  <div className="size-3.5 rounded-sm bg-muted-foreground/30" />
-                  <div className="h-2 w-24 rounded bg-muted-foreground/20" />
+                <div className="bg-muted/50 mx-auto flex max-w-sm items-center gap-2 rounded-md px-3 py-1.5">
+                  <div className="bg-muted-foreground/30 size-3.5 rounded-sm" />
+                  <div className="bg-muted-foreground/20 h-2 w-24 rounded" />
                 </div>
               </div>
             </div>
 
             <div className="flex">
               {/* Sidebar */}
-              <div className="hidden w-44 shrink-0 border-r border-border p-3 md:block">
-                <div className="mb-4 flex items-center gap-2 rounded-md bg-primary/10 px-2.5 py-2">
-                  <div className="size-4 rounded bg-primary" />
-                  <span className="text-xs font-semibold text-primary">
+              <div className="border-border hidden w-44 shrink-0 border-r p-3 md:block">
+                <div className="bg-primary/10 mb-4 flex items-center gap-2 rounded-md px-2.5 py-2">
+                  <div className="bg-primary size-4 rounded" />
+                  <span className="text-primary text-xs font-semibold">
                     FlowPilot
                   </span>
                 </div>
@@ -124,9 +124,9 @@ export function Dashboard() {
                   ].map((card) => (
                     <div
                       key={card.label}
-                      className="rounded-lg border border-border p-3"
+                      className="border-border rounded-lg border p-3"
                     >
-                      <p className="text-[10px] font-medium text-muted-foreground">
+                      <p className="text-muted-foreground text-[10px] font-medium">
                         {card.label}
                       </p>
                       <p className="mt-1 text-lg font-bold">{card.value}</p>
@@ -138,16 +138,16 @@ export function Dashboard() {
                 </div>
 
                 {/* Chart Area */}
-                <div className="mb-4 rounded-lg border border-border p-4">
+                <div className="border-border mb-4 rounded-lg border p-4">
                   <div className="mb-3 flex items-center justify-between">
                     <p className="text-xs font-semibold">Workflow Activity</p>
-                    <div className="flex gap-3 text-[10px] text-muted-foreground">
+                    <div className="text-muted-foreground flex gap-3 text-[10px]">
                       <span className="flex items-center gap-1">
-                        <span className="inline-block size-1.5 rounded-full bg-primary" />
+                        <span className="bg-primary inline-block size-1.5 rounded-full" />
                         Executions
                       </span>
                       <span className="flex items-center gap-1">
-                        <span className="inline-block size-1.5 rounded-full bg-primary/30" />
+                        <span className="bg-primary/30 inline-block size-1.5 rounded-full" />
                         Errors
                       </span>
                     </div>
@@ -157,18 +157,18 @@ export function Dashboard() {
                       (h, i) => (
                         <div key={i} className="flex flex-1 flex-col gap-0.5">
                           <div
-                            className="rounded-t bg-primary/80"
+                            className="bg-primary/80 rounded-t"
                             style={{ height: `${h}%` }}
                           />
                           <div
-                            className="rounded-t bg-primary/20"
+                            className="bg-primary/20 rounded-t"
                             style={{ height: `${Math.max(h * 0.15, 4)}%` }}
                           />
                         </div>
                       ),
                     )}
                   </div>
-                  <div className="mt-2 flex justify-between text-[9px] text-muted-foreground">
+                  <div className="text-muted-foreground mt-2 flex justify-between text-[9px]">
                     {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'].map((m) => (
                       <span key={m}>{m}</span>
                     ))}
@@ -176,11 +176,11 @@ export function Dashboard() {
                 </div>
 
                 {/* Activity Table */}
-                <div className="overflow-hidden rounded-lg border border-border">
-                  <div className="border-b border-border px-3 py-2">
+                <div className="border-border overflow-hidden rounded-lg border">
+                  <div className="border-border border-b px-3 py-2">
                     <p className="text-xs font-semibold">Recent Activity</p>
                   </div>
-                  <div className="divide-y divide-border">
+                  <div className="divide-border divide-y">
                     {[
                       {
                         name: 'Deploy Pipeline',
@@ -210,7 +210,7 @@ export function Dashboard() {
                       >
                         <div>
                           <p className="text-xs font-medium">{row.name}</p>
-                          <p className="text-[10px] text-muted-foreground">
+                          <p className="text-muted-foreground text-[10px]">
                             {row.time}
                           </p>
                         </div>

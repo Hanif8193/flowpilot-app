@@ -21,14 +21,14 @@ export function Hero() {
               🚀 Now in Early Access
             </Badge>
 
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
               Automate your workflow with{' '}
               <span className="bg-gradient-to-r from-violet-600 to-blue-600 bg-clip-text text-transparent">
                 AI Power
               </span>
             </h1>
 
-            <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
+            <p className="text-muted-foreground max-w-xl text-lg leading-relaxed">
               FlowPilot helps modern teams automate repetitive tasks, streamline
               development workflows, and ship products faster with the power of
               Artificial Intelligence.

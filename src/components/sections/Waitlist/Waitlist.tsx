@@ -1,5 +1,5 @@
-import { WaitlistForm } from "./WaitlistForm";
-import { AnimatedSection } from "@/components/ui/AnimatedSection/AnimatedSection";
+import { WaitlistForm } from './WaitlistForm'
+import { AnimatedSection } from '@/components/ui/AnimatedSection/AnimatedSection'
 
 export function Waitlist() {
   return (
@@ -10,18 +10,18 @@ export function Waitlist() {
             Join the Waitlist Today
           </h2>
 
-          <p className="mb-10 text-lg text-muted-foreground">
+          <p className="text-muted-foreground mb-10 text-lg">
             Be among the first teams to experience AI-powered workflow
             automation.
           </p>
 
           <WaitlistForm />
 
-          <p className="mt-6 text-sm text-muted-foreground">
+          <p className="text-muted-foreground mt-6 text-sm">
             We respect your privacy. Unsubscribe anytime.
           </p>
         </AnimatedSection>
       </div>
     </section>
-  );
+  )
 }

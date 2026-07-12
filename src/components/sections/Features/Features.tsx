@@ -24,7 +24,7 @@ const features = [
     icon: Users,
     title: 'Team Collaboration',
     description:
-      "Seamless real-time collaboration tools that keep everyone aligned and productive across distributed teams.",
+      'Seamless real-time collaboration tools that keep everyone aligned and productive across distributed teams.',
   },
   {
     icon: BarChart3,
@@ -54,7 +54,7 @@ export function Features() {
           <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
             Everything you need to automate your workflow
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-muted-foreground text-lg">
             FlowPilot combines powerful AI capabilities with intuitive tools to
             transform how your team builds and ships software.
           </p>
@@ -66,13 +66,13 @@ export function Features() {
             return (
               <div
                 key={feature.title}
-                className="group rounded-xl border border-border bg-card p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                className="group border-border bg-card rounded-xl border p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-primary/10">
-                  <Icon className="size-6 text-primary" aria-hidden="true" />
+                <div className="bg-primary/10 mb-4 flex size-12 items-center justify-center rounded-lg">
+                  <Icon className="text-primary size-6" aria-hidden="true" />
                 </div>
                 <h3 className="mb-2 text-lg font-semibold">{feature.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </div>

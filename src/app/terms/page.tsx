@@ -3,8 +3,7 @@ import { generatePageMetadata } from '@/lib/metadata'
 
 export const metadata = generatePageMetadata({
   title: 'Terms of Service',
-  description:
-    'Review the terms and conditions for using FlowPilot.',
+  description: 'Review the terms and conditions for using FlowPilot.',
   path: '/terms',
 })
 
@@ -18,7 +17,12 @@ export default function TermsPage() {
 
         <div className="prose prose-gray dark:prose-invert mt-8 space-y-8">
           <p className="text-muted-foreground">
-            Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            Last updated:{' '}
+            {new Date().toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
           </p>
 
           <div className="space-y-2">

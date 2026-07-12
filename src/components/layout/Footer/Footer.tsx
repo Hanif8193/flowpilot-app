@@ -80,13 +80,13 @@ function FooterLinkGroup({
 }) {
   return (
     <div className="space-y-3">
-      <h3 className="text-sm font-semibold text-foreground">{title}</h3>
+      <h3 className="text-foreground text-sm font-semibold">{title}</h3>
       <ul className="space-y-2">
         {links.map((link) => (
           <li key={link.href}>
             <Link
               href={link.href}
-              className="rounded-lg text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground rounded-lg text-sm transition-colors"
             >
               {link.label}
             </Link>
@@ -99,16 +99,19 @@ function FooterLinkGroup({
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="border-border bg-background border-t">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
           <div className="col-span-2 space-y-4">
-            <Link href="/" className="inline-flex items-center gap-2 rounded-lg">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 rounded-lg"
+            >
               <span className="text-xl font-bold tracking-tight">
                 FlowPilot
               </span>
             </Link>
-            <p className="max-w-xs text-sm text-muted-foreground">
+            <p className="text-muted-foreground max-w-xs text-sm">
               AI-powered workflow automation for modern teams.
             </p>
             <div className="flex gap-4">
@@ -119,7 +122,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${social.label} (opens in new tab)`}
-                  className="rounded-lg text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-muted-foreground hover:text-foreground rounded-lg transition-colors"
                 >
                   {social.icon}
                 </a>
@@ -132,8 +135,8 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
-          <p className="text-sm text-muted-foreground">
+        <div className="border-border mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 sm:flex-row">
+          <p className="text-muted-foreground text-sm">
             &copy; {new Date().getFullYear()} FlowPilot. All rights reserved.
           </p>
           <div className="flex gap-4">
@@ -141,7 +144,7 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-lg text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="text-muted-foreground hover:text-foreground rounded-lg text-sm transition-colors"
               >
                 {link.label}
               </Link>
