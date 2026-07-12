@@ -28,13 +28,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           where: { email },
         })
 
-        if (!user || !user.password) {
+        if (!user || !user.passwordHash) {
           return null
         }
 
         const isValid = await bcrypt.compare(
           credentials.password as string,
-          user.password,
+          user.passwordHash,
         )
 
         if (!isValid) {

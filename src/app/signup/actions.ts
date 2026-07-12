@@ -46,12 +46,13 @@ export async function signup(data: SignupFormData): Promise<SignupResult> {
       data: {
         name: name.trim(),
         email: normalizedEmail,
-        password: hashedPassword,
+        passwordHash: hashedPassword,
       },
     })
 
     return { success: true }
-  } catch {
+  } catch (e) {
+    console.error('[signup]', e)
     return {
       success: false,
       error: 'Something went wrong. Please try again.',
