@@ -45,7 +45,9 @@ describe('POST /api/waitlist', () => {
 
     expect(res.status).toBe(201)
     expect(json.success).toBe(true)
-    expect(json.email).toBe('test@example.com')
+    expect(json.message).toBe(
+      "You're on the list! We'll notify you when access opens.",
+    )
   })
 
   it('returns 409 for duplicate email', async () => {
@@ -60,8 +62,7 @@ describe('POST /api/waitlist', () => {
     expect(res.status).toBe(409)
     expect(json).toEqual({
       success: false,
-      code: 'DUPLICATE',
-      message: 'Email already registered.',
+      message: 'This email is already on the waitlist.',
     })
     expect(mockCreate).not.toHaveBeenCalled()
   })

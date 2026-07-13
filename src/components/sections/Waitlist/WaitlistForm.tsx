@@ -13,7 +13,10 @@ export function WaitlistForm() {
   if (status === 'success') {
     return (
       <div className="border-border bg-card rounded-2xl border p-8 shadow-lg sm:p-10">
-        <p role="status" className="text-foreground text-base font-medium">
+        <p
+          role="status"
+          className="text-base font-medium text-green-600 dark:text-green-400"
+        >
           You&apos;re on the list! We&apos;ll notify you when access opens.
         </p>
         <button
@@ -30,7 +33,10 @@ export function WaitlistForm() {
   if (status === 'duplicate') {
     return (
       <div className="border-border bg-card rounded-2xl border p-8 shadow-lg sm:p-10">
-        <p role="status" className="text-foreground text-base font-medium">
+        <p
+          role="status"
+          className="text-base font-medium text-amber-600 dark:text-amber-400"
+        >
           {message}
         </p>
         <button
@@ -47,7 +53,10 @@ export function WaitlistForm() {
   if (status === 'error') {
     return (
       <div className="border-border bg-card rounded-2xl border p-8 shadow-lg sm:p-10">
-        <p role="alert" className="text-foreground text-base font-medium">
+        <p
+          role="alert"
+          className="text-base font-medium text-red-600 dark:text-red-400"
+        >
           {message}
         </p>
         <button

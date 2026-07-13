@@ -37,8 +37,7 @@ export async function POST(req: Request) {
       return NextResponse.json(
         {
           success: false,
-          code: 'DUPLICATE',
-          message: 'Email already registered.',
+          message: 'This email is already on the waitlist.',
         },
         { status: 409 },
       )
@@ -46,7 +45,13 @@ export async function POST(req: Request) {
 
     await prisma.waitlist.create({ data: { email } })
 
-    return NextResponse.json({ success: true, email }, { status: 201 })
+    return NextResponse.json(
+      {
+        success: true,
+        message: "You're on the list! We'll notify you when access opens.",
+      },
+      { status: 201 },
+    )
   } catch (error) {
     console.error('[waitlist] Unexpected error:', error)
     return NextResponse.json(

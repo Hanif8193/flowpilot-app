@@ -34,7 +34,7 @@ export function useWaitlistForm() {
     if (hasEntry(email)) {
       setSubmissionState({
         status: 'duplicate',
-        message: 'You are already on the waitlist.',
+        message: 'This email is already on the waitlist.',
       })
       return
     }
@@ -69,7 +69,7 @@ export function useWaitlistForm() {
 
         setSubmissionState({
           status: 'success',
-          message: 'Successfully joined the waitlist!',
+          message: "You're on the list! We'll notify you when access opens.",
         })
         return
       }
@@ -77,7 +77,7 @@ export function useWaitlistForm() {
       if (res.status === 409) {
         setSubmissionState({
           status: 'duplicate',
-          message: 'You are already on the waitlist.',
+          message: 'This email is already on the waitlist.',
         })
         return
       }

@@ -121,7 +121,7 @@ describe('Waitlist', () => {
     })
 
     expect(screen.getByRole('status')).toHaveTextContent(
-      'You are already on the waitlist.',
+      'This email is already on the waitlist.',
     )
   })
 
